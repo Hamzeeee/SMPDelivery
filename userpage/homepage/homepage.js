@@ -11,7 +11,7 @@ function redirect() {
 
     const redirectToLogin = document.getElementById('loginButton');
     redirectToLogin.addEventListener('click', event => {
-        windows.location.href = "../authentication/login.html";
+        window.location.href = "../authentication/login.html";
     })
 }
 

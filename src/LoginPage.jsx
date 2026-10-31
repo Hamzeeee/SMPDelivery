@@ -1,13 +1,16 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
+const inputElement = 'userNameInput';
+
 function LoginPage() {
     const [component, setComponent] = useState(null);
     const navigate = useNavigate();
 
-    async function handleUserName() {
+    async function handleUserName(event) {
+        event.preventDefault();
         try {
-            const username = document.getElementById('username').value.trim();
+            const username = document.getElementById(inputElement).value.trim();
             const apiCheck = await fetch('http://localhost:8080/api/player/' + username);
 
             if (apiCheck.status === 504) {
@@ -40,28 +43,18 @@ function LoginPage() {
         }
     }
 
-    // TODO: FIX SUBMIT BUTTON AND REFACTOR CODE
     return (
         <div>
             <h1>Login Page</h1>
             <div>
-                <input id="usernameInput" type="text" placeholder="Username"/>
-                <button id="submit" onClick={handleUserName}}>Login
-                </button>
-                {component}
+                <form onSubmit={handleUserName}>
+                    <input id={inputElement} type="text" placeholder="Username"/>
+                    <button id="submit" onClick={handleUserName}>Login</button>
+                    {component}
+                </form>
             </div>
         </div>
     );
-}
-
-function inputPressEnter() {
-    const input = document.getElementById('usernameInput');
-    input.addEventListener("keypress", (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById('submit').click();
-        }
-    })
 }
 
 export default LoginPage;

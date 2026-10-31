@@ -12,8 +12,8 @@ function HomePage() {
             <title>DepExpress | Homepage</title>
             <h1>DepExpress</h1>
             <p>Willkommen bei DepExpress, ihr Händler des Vertrauens!</p>
-            <LogOutButton />
             {!loggedInStatus ? <LoginButton/> : <p>{username.toString()}</p>}
+            <LogOutButton />
         </div>
     )
 }

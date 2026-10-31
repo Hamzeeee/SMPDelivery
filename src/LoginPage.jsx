@@ -13,25 +13,9 @@ function LoginPage() {
             const username = document.getElementById(inputElement).value.trim();
             const apiCheck = await fetch('http://localhost:8080/api/player/' + username);
 
-            if (apiCheck.status === 504) {
-                setComponent(() =>
-                    <p className="errorMessage">Mojang API not reachable. Please try again later!</p>
-                );
-                return;
-            }
-
-            if (apiCheck.status === 404) {
-                setComponent(() =>
-                    <p className="errorMessage">Invalid username!</p>
-                )
-                return;
-            }
-
-            if (apiCheck.status !== 200) {
-                setComponent(() =>
-                    <p className="errorMessage">Something went wrong! :(</p>);
-                return;
-            }
+            if (apiCheck.status === 504) return setComponent(() => <p className="errorMessage">Mojang API not reachable. Please try again later!</p>);
+            if (apiCheck.status === 404) return setComponent(() => <p className="errorMessage">Invalid username!</p>);
+            if (apiCheck.status !== 200) return setComponent(() => <p className="errorMessage">Something went wrong! :(</p>);
 
             localStorage.setItem("logged_in", "true");
             localStorage.setItem("username", username.toString());

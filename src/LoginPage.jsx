@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import base64 from 'react-native-base64';
 
 const inputElement = 'userNameInput';
 
@@ -17,7 +18,9 @@ function LoginPage() {
             if (apiCheck.status === 404) return setComponent(() => <p className="errorMessage">Invalid username!</p>);
             if (apiCheck.status !== 200) return setComponent(() => <p className="errorMessage">Something went wrong! :(</p>);
 
+            setComponent(() => <p className="logInText">Logging in.. please wait!</p>);
             localStorage.setItem("logged_in", "true");
+            localStorage.setItem("playerHead", base64.decode());
             localStorage.setItem("username", username.toString());
             navigate("/");
             window.location.reload();

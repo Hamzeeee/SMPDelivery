@@ -4,6 +4,8 @@ import cors from "cors"
 const app = express();
 
 app.use(cors());
+
+// ETag to avoid 304 HTTP Code.
 app.set("etag", false);
 app.get("/api/player/:username", async (req, res) => {
     const {username} = req.params;

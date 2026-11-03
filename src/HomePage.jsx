@@ -1,8 +1,8 @@
 import {useNavigate} from 'react-router-dom';
 
-const loggedInStatus = (localStorage.getItem('logged_in') === 'true')
+const loggedInStatus = (localStorage.getItem('loggedInStatus') === 'true')
 const usernameKey = 'username';
-const logInStatusKey = 'logged_in';
+const logInStatusKey = 'loggedInStatus';
 const imgSize = 50;
 
 // This is the HomePage render

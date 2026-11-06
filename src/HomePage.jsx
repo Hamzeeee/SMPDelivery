@@ -39,7 +39,7 @@ function HomePage() {
         return (
             <div>
                 <button id="logOutButton" onClick={RemoveProfile}>Log-Out</button>
-                <img src={`https://api.mcheads.org/head/${username}/${imgSize}`} alt="profile"/>
+                <img src={`https://api.mcheads.org/head/${username.toString()}/${imgSize}`} alt="profile"/>
                 <p id="username">{username.toString()}</p>
             </div>
         );

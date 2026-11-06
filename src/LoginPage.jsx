@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {UserNameKey} from "./constans.jsx";
 
 const inputElement = 'userNameInput';
 
@@ -19,7 +20,7 @@ function LoginPage() {
 
             setComponent(() => <p className="logInText">Logging in.. please wait!</p>);
             localStorage.setItem("loggedInStatus", "true");
-            localStorage.setItem("username", username.toString());
+            localStorage.setItem(UserNameKey, username.toString());
             navigate("/");
             window.location.reload();
         } catch (err) {

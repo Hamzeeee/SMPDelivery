@@ -1,8 +1,10 @@
 import {useNavigate} from 'react-router-dom';
+import {logInStatusKey} from "./constans.jsx";
+import {UserNameKey} from "./constans.jsx";
+import {loggedInStatus} from "./constans.jsx";
 
-const loggedInStatus = (localStorage.getItem('loggedInStatus') === 'true')
-const usernameKey = 'username';
-const logInStatusKey = 'loggedInStatus';
+const loginStatus = loggedInStatus;
+const usernameKey = UserNameKey;
 const imgSize = 50;
 
 // This is the HomePage render
@@ -19,7 +21,7 @@ function HomePage() {
     }
 
     function RedirectToOrderButton() {
-        if (!loggedInStatus) return;
+        if (!loginStatus) return;
         const redirectToOrderPage = () => {
             navigate("/orderpage");
         }
@@ -48,7 +50,7 @@ function HomePage() {
             <title>DepExpress | Homepage</title>
             <h1>DepExpress</h1>
             <p>Willkommen bei DepExpress, ihr Händler des Vertrauens!</p>
-            {!loggedInStatus ? <LoginButton/> : <LogOutButton/>}
+            {!loginStatus ? <LoginButton/> : <LogOutButton/>}
             <RedirectToOrderButton />
         </div>
     );

@@ -1,5 +1,4 @@
 import {useNavigate} from 'react-router-dom';
-import {logInStatusKey} from "./Constants.jsx";
 import {UserNameKey} from "./Constants.jsx";
 import {loggedInStatus} from "./Constants.jsx";
 

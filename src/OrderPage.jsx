@@ -1,14 +1,8 @@
-import {Navigate, useNavigate} from "react-router-dom";
-import {loggedInStatus} from "./Constants.jsx";
+import {useNavigate} from "react-router-dom";
+import {CheckAuthorization} from "./Constants.jsx";
 
 function OrderPage() {
     const navigate = useNavigate();
-
-    function CheckAuthorization() {
-        if (!loggedInStatus) {
-            return <Navigate to="/" />
-        }
-    }
 
     function HomeButton() {
         return <button id="homeButton" onClick={() => navigate("/")}>Home</button>
@@ -45,16 +39,16 @@ function OrderPage() {
 
     // Temporary item, will be replaced with a Json-Body
     function TempItem() {
-        return createItem("Diamonds", "dia", "https://de.minecraft.wiki/images/Diamant.png?60c1a", 20, 64);
+        return createItem("orderedItem/Diamonds", "dia", "https://de.minecraft.wiki/images/Diamant.png?60c1a", 20, 64);
     }
 
     function TempItem2() {
-        return createItem("Wood", "dia", "https://de.minecraft.wiki/images/Netherite.png?60c1a", 20, 64);
+        return createItem("orderedItem/Wood", "dia", "https://de.minecraft.wiki/images/Netherite.png?60c1a", 20, 64);
     }
 
     return (
         <div>
-            <CheckAuthorization/>
+            <CheckAuthorization />
             <title>DepExpress | Orderpage</title>
             <h1>Wähle deine Items aus! :D</h1>
             <HomeButton/>

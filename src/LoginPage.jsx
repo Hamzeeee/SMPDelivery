@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {UserNameKey} from "./constans.jsx";
+import {UserNameKey} from "./Constants.jsx";
 
 const inputElement = 'userNameInput';
 

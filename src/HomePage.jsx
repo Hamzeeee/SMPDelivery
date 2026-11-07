@@ -1,7 +1,7 @@
 import {useNavigate} from 'react-router-dom';
-import {logInStatusKey} from "./constans.jsx";
-import {UserNameKey} from "./constans.jsx";
-import {loggedInStatus} from "./constans.jsx";
+import {logInStatusKey} from "./Constants.jsx";
+import {UserNameKey} from "./Constants.jsx";
+import {loggedInStatus} from "./Constants.jsx";
 
 const loginStatus = loggedInStatus;
 const usernameKey = UserNameKey;
@@ -29,8 +29,7 @@ function HomePage() {
     }
 
     function RemoveProfile() {
-        localStorage.removeItem(usernameKey);
-        localStorage.removeItem(logInStatusKey);
+        localStorage.clear();
         window.location.reload();
     }
 
